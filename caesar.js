@@ -14,7 +14,7 @@
  * This is the one and only entry point function called from the HTML code.
  */
 function doCrypt(isDecrypt) {
-	var shift = parseInt(document.getElementsById("encode").value, 10);
+	var shift = document.getElementById('encode').value;
 	if (isDecrypt)
 		shift = (26 - shift) % 26;
 	var textElem = document.getElementById("regulartext");
