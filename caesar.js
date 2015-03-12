@@ -28,7 +28,9 @@ function doCrypt(isDecrypt) {
 		shift = (26 - shift) % 26;
 	var textElem = document.getElementById("regulartext");
 	var message = document.getElementById("encodedtext");
-	message.innerHTML = caesarShift(textElem.value, shift) + "<br>" + "shift: " + shift;
+	var shiftText = document.getElementById("shifttext");
+	message.innerHTML = caesarShift(textElem.value, shift);
+	shiftText.innerHTML = shift;
 }
 
 
