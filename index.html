@@ -5,10 +5,10 @@
     
     <script>
     function encode() {
-      var text = document.getElementsById('regulartext').value;
-      // Encode text with the Caesar Cipher.
-      var encoded = encrypt(text,5);
-      document.getElementsById('encodedtext').innerHTML = encoded;
+      doCrypt(false);
+    }
+    function decode() {
+      doCrypt(true);
     }
     </script>
   </head>
@@ -18,7 +18,9 @@
       <h2>pass notes like an uber hax0r</h2>
       <hr>
       <div style="display: table; margin:0 auto;">
-        <textarea id="regulartext" onkeyup="encode()" onchange="encode()" style="resize: none; font-family: inherit;" cols="30" rows="5">Put regular words here.</textarea>
+        <textarea id="regulartext" style="resize: none; font-family: inherit;" cols="30" rows="5">Put regular words or secret code text here.</textarea>
+        <button onclick="encode()">Encode</button>
+        <button onclick="decode()">Decode</button>
         <h1 id="encodedtext" style="text-align: center;"></h1>
       </div>
     </div>
