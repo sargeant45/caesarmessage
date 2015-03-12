@@ -14,7 +14,7 @@
  * This is the one and only entry point function called from the HTML code.
  */
 function doCrypt(isDecrypt) {
-	var shiftText = 13;
+	var shiftText = 10;
 	if (!/^-?\d+$/.test(shiftText)) {
 		alert("Shift is not an integer");
 		return;
