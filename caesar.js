@@ -48,5 +48,5 @@ function caesarShift(text, shift) {
 		else if (c >= 97 && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
 		else                          result += text.charAt(i);  // Copy
 	}
-	document.getElementById("regulartext").innerHTML = result;
+	document.getElementById("encodedtext").innerHTML = result;
 }
