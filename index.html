@@ -1,7 +1,10 @@
 <html>
   <head>
     <script src="caesar.js"></script>
+    <script src="sms.js"></script>
+    
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    
     <title>caesarmessage</title>
     
     <script>
@@ -10,6 +13,11 @@
     }
     function decode() {
       doCrypt(true);
+    }
+    function send() {
+      var messagebody = document.getElementById('encodedtext').innerHTML + "\n" + "Decode with http://is.gd/TNtK1a";
+      var number = document.getElementById('phonenumber').value;
+      sendText(number, messagebody);
     }
     </script>
   </head>
@@ -24,6 +32,8 @@
         <button onclick="encode()">Encode</button>
         <button onclick="decode()">Decode</button>
         <h1 id="encodedtext" style="text-align: center; font-size: 64px;"></h1>
+        <br>
+        <label for="phonenumber">###-###-####</label><input title="US numbers only." type="text" id="phonenumber"> <button title="This will send whatever you have in large text." onclick="send()">Send</button>
       </div>
     </div>
   </body>
