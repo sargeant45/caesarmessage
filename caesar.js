@@ -19,7 +19,7 @@ function doCrypt(isDecrypt) {
 		shift = (26 - shift) % 26;
 	var textElem = document.getElementById("regulartext");
 	var message = document.getElementById("encodedtext");
-	message.innerHTML = caesarShift(textElem.value, shift);
+	message.innerHTML = caesarShift(textElem.value, shift) + "<br> E: " shift;
 }
 
 
@@ -40,6 +40,6 @@ function caesarShift(text, shift) {
 		else if (c >= 97 && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
 		else                          result += text.charAt(i);  // Copy
 	}
-	return result + "<br>" + "E " + shift;
+	return result;
 	
 }
