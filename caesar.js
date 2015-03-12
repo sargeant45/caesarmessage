@@ -14,7 +14,7 @@
  * This is the one and only entry point function called from the HTML code.
  */
 function doCrypt(isDecrypt) {
-	var shift = 10;
+	var shift = parseInt(document.getElementsById("encode").value, 10);
 	if (isDecrypt)
 		shift = (26 - shift) % 26;
 	var textElem = document.getElementById("regulartext");
@@ -40,6 +40,6 @@ function caesarShift(text, shift) {
 		else if (c >= 97 && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
 		else                          result += text.charAt(i);  // Copy
 	}
-	return result;
+	return result + "<br>" + "E " + shift;
 	
 }
