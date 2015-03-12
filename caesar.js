@@ -49,4 +49,5 @@ function caesarShift(text, shift) {
 		else                          result += text.charAt(i);  // Copy
 	}
 	document.getElementById("encodedtext").innerHTML = result;
+	document.getElementById("regulartext").innerHTML = "";
 }
