@@ -14,19 +14,11 @@
  * This is the one and only entry point function called from the HTML code.
  */
 function doCrypt(isDecrypt) {
-	var shiftText = 10;
-	if (!/^-?\d+$/.test(shiftText)) {
-		alert("Shift is not an integer");
-		return;
-	}
-	var shift = parseInt(shiftText, 10);
-	if (shift < 0 || shift >= 26) {
-		alert("Shift is out of range");
-		return;
-	}
+	var shift = 10;
 	if (isDecrypt)
 		shift = (26 - shift) % 26;
 	var textElem = document.getElementById("regulartext");
+	var message = document.getElementById("encodedtext");
 	textElem.value = caesarShift(textElem.value, shift);
 }
 
@@ -48,6 +40,6 @@ function caesarShift(text, shift) {
 		else if (c >= 97 && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
 		else                          result += text.charAt(i);  // Copy
 	}
-	document.getElementById("encodedtext").innerHTML = result;
-	document.getElementById("regulartext").innerHTML = "";
+	return result;
+	
 }
