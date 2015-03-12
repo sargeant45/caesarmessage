@@ -1,8 +1,26 @@
 <html>
   <head>
-    <script src="base64.js"></script>
-  </head>
-  <body>
+    <script src="caesar.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     
+    <script>
+    function encode() {
+      var text = document.getElementsById('regulartext').value;
+      // Encode text with the Caesar Cipher.
+      var encoded = encrypt(text,5);
+      document.getElementsById('encodedtext').innerHTML = encoded;
+    }
+    </script>
+  </head>
+  <body style="font-family: 'Roboto', sans-serif;">
+    <div style="width: 100%">
+      <b><h1>notepass</h1></b>
+      <h2>pass notes like an uber hax0r</h2>
+      <hr>
+      <div style="display: table; margin:0 auto;">
+        <textarea id="regulartext" onkeyup="encode()" onchange="encode()" style="resize: none; font-family: inherit;" cols="30" rows="5">Put regular words here.</textarea>
+        <h1 id="encodedtext" style="text-align: center;"></h1>
+      </div>
+    </div>
   </body>
 </html>
