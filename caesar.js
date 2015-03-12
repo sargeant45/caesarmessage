@@ -1,37 +1,52 @@
-// Credit Ginolo Lomelino
-// https://github.com/ginolomelino/Caesar-Cipher
+/* 
+ * Caesar cipher
+ * 
+ * Copyright (c) 2015 Project Nayuki
+ * All rights reserved. Contact Nayuki for licensing.
+ * http://www.nayuki.io/page/caesar-cipher-javascript
+ */
 
-var encrypt = function(str,shift) {
-	var newStr = '';
-	var charCode = 0;
-	
-	for(i=0;i<str.length;i++) {
-		charCode = str.charCodeAt(i);
-		if (charCode >= 97 && charCode <= 122) {
-			newStr += String.fromCharCode(((charCode + 3 - 97) % 26) + 97);
-		} else if (charCode >= 65 && charCode <= 90) {
-			newStr += String.fromCharCode(((charCode + 3 - 65) % 26) + 65);
-		} else {
-			newStr += str[i];
-		}
+"use strict";
+
+
+/*
+ * Handles the HTML input/output for Caesar cipher encryption/decryption.
+ * This is the one and only entry point function called from the HTML code.
+ */
+function doCrypt(isDecrypt) {
+	var shiftText = 13;
+	if (!/^-?\d+$/.test(shiftText)) {
+		alert("Shift is not an integer");
+		return;
 	}
-	
-	return newStr;
+	var shift = parseInt(shiftText, 10);
+	if (shift < 0 || shift >= 26) {
+		alert("Shift is out of range");
+		return;
+	}
+	if (isDecrypt)
+		shift = (26 - shift) % 26;
+	var textElem = document.getElementById("regulartext");
+	textElem.value = caesarShift(textElem.value, shift);
 }
-var decrypt = function(str,shift) {
-	var newStr = '';
-	var charCode = 0;
-	
-	for(i=0;i<str.length;i++) {
-		charCode = str.charCodeAt(i);
-		if (charCode >= 97 && charCode <= 122) {
-			newStr += String.fromCharCode((((charCode - 3) - 97 + 26) % 26) + 97);
-		} else if (charCode >= 65 && charCode <= 90) {
-			newStr += String.fromCharCode((((charCode - 3) - 65 + 26) % 26) + 65);
-		} else {
-			newStr += str[i];
-		}
+
+
+/*
+ * Returns the result of having each alphabetic letter of the given text string shifted forward
+ * by the given amount, with wraparound. Case is preserved, and non-letters are unchanged.
+ * Examples:
+ *   caesarShift("abz",  0) = "abz"
+ *   caesarShift("abz",  1) = "bca"
+ *   caesarShift("abz", 25) = "zay"
+ *   caesarShift("THe 123 !@#$", 13) = "GUr 123 !@#$"
+ */
+function caesarShift(text, shift) {
+	var result = "";
+		for (var i = 0; i < text.length; i++) {
+		var c = text.charCodeAt(i);
+		if      (c >= 65 && c <=  90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);  // Uppercase
+		else if (c >= 97 && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
+		else                          result += text.charAt(i);  // Copy
 	}
-	
-	return newStr;
+	document.getElementById("regulartext").innerHTML = result;
 }
