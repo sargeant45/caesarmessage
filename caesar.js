@@ -27,6 +27,7 @@ function doCrypt(isDecrypt) {
 	}
 	if (isDecrypt)
 		shift = (26 - shift) % 26;
+		textElem.innerHTML = "";
 	var textElem = document.getElementById("regulartext");
 	var message = document.getElementById("encodedtext");
 	var shiftText = document.getElementById("shifttext");
