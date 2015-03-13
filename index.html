@@ -1,22 +1,16 @@
 <html>
   <head>
     <script src="caesar.js"></script>
-    <script src="prettify.js"></script>
     
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-    <script>
-      window.jsprettify.run();
-    </script>
     <title>caesarmessage</title>
     
     <script>
     function encode() {
       doCrypt(false);
-      window.jsprettify.run();
     }
     function decode() {
       doCrypt(true);
-      window.jsprettify.run();
     }
     </script>
   </head>
@@ -26,14 +20,14 @@
       <h2>pass notes like an uber hax0r</h2>
       <hr>
       <div style="display: table; margin:0 auto; font-family: inherit;">
-        <textarea class="prettify" id="regulartext" style="resize: none; font-family: inherit; font-size: 15px;" cols="40" rows="5">Put regular words or secret code text here.</textarea>
+        <textarea id="regulartext" style="resize: none; font-family: inherit; font-size: 15px;" cols="40" rows="5">Put regular words or secret code text here.</textarea>
         <br>
         <br>
         <button onclick="encode()">Encode</button> &nbsp; &nbsp; <button onclick="decode()">Decode</button>
         <br>
         <br>
         <label for="encode">Shift: </label> <input type="number" title="Shift number." max="25" min="1" value="1" id="encode"> 
-        <h1 id="encodedtext" class="prettify" style="text-align: center; font-size: 72px;"></h1>
+        <h1 id="encodedtext" style="text-align: center; font-size: 72px;"></h1>
         <h2 id="shifttext" style="text-align: center; font-size: 52px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;  -o-user-select: none; user-select: none;" unselectable="on"></h2>
         <br>
       </div>
