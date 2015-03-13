@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="caesar.js"></script>
+    <script src="prettify.js"></script>
     
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     
@@ -9,13 +10,15 @@
     <script>
     function encode() {
       doCrypt(false);
+      window.jsprettify.run();
     }
     function decode() {
       doCrypt(true);
+      window.jsprettify.run();
     }
     </script>
   </head>
-  <body style="font-family: 'Roboto', sans-serif;">
+  <body style="font-family: 'Roboto', sans-serif;" class="prettify">
     <div style="width: 100%">
       <a href="about.html" title="how to use/about"><b><h1>caesarmessage</h1></b></a>
       <h2>pass notes like an uber hax0r</h2>
