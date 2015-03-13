@@ -32,6 +32,7 @@ function doCrypt(isDecrypt) {
 	var shiftText = document.getElementById("shifttext");
 	message.innerHTML = caesarShift(textElem.value, shift);
 	shiftText.innerHTML = "set shift to: " + firstShift;
+	textElem.innerHTML = "";
 }
 
 
