@@ -15,6 +15,7 @@
  */
 function doCrypt(isDecrypt) {
 	var shiftText = document.getElementById('encode').value;
+	var firstShift = parseInt(shiftText, 10);
 	if (!/^-?\d+$/.test(shiftText)) {
 		alert("Shift is not an integer");
 		return;
@@ -30,7 +31,7 @@ function doCrypt(isDecrypt) {
 	var message = document.getElementById("encodedtext");
 	var shiftText = document.getElementById("shifttext");
 	message.innerHTML = caesarShift(textElem.value, shift);
-	shiftText.innerHTML = "set shift to: " + shiftText;
+	shiftText.innerHTML = "set shift to: " + firstShift;
 }
 
 
