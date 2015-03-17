@@ -17,6 +17,7 @@ function doCrypt(isDecrypt) {
 	var shiftText = document.getElementById('encode').value;
 	var textElem = document.getElementById("regulartext");
 	var shift = parseInt(shiftText, 10);
+	var firstShift = shiftText;
 	if (shift < 0 || shift >= 26) {
 		alert("Shift is out of range");
 		return;
@@ -26,7 +27,7 @@ function doCrypt(isDecrypt) {
 	
 	var message = document.getElementById("encodedtext");
 	var shiftText = document.getElementById("shifttext");
-	var firstShift = parseInt(shiftText, 10);
+	
 	message.innerHTML = caesarShift(textElem.value, shift);
 	shiftText.innerHTML = "set shift to: " + firstShift;
 	
