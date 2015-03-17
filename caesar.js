@@ -16,10 +16,6 @@
 function doCrypt(isDecrypt) {
 	var shiftText = document.getElementById('encode').value;
 	var textElem = document.getElementById("regulartext");
-	if (!/^-?\d+$/.test(shiftText)) {
-		alert("Shift is not an integer");
-		return;
-	}
 	var shift = parseInt(shiftText, 10);
 	if (shift < 0 || shift >= 26) {
 		alert("Shift is out of range");
